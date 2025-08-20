@@ -8,7 +8,7 @@ public class YourToolsMapperProfile : MapperProfile
 {
     public override void Configure(MapperConfiguration config)
     {
-        config.EnableProjectionFunctions = false;
+        config.EnableProjectionFunctions = true;
         
         config.CreateMap<PersonModel, PersonEntity>().Reverse();
         config.CreateMap<CertificateModel, CertificateEntity>().Reverse();
