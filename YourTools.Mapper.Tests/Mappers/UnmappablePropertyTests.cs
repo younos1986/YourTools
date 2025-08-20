@@ -1,9 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using YourTools.Mapper;
 using YourTools.Mapper.Generated;
-using Xunit;
 
-namespace YourTools.Mapper.Tests;
+namespace YourTools.Mapper.Tests.Mappers;
 
 public class UnmappablePropertySource
 {
@@ -78,7 +76,7 @@ public class UnmappablePropertyTests
         };
         
         // Act
-        var destination = _mapper.Map<UnmappablePropertyDestination>(source);
+        var destination = _mapper.MapSingleObject<UnmappablePropertySource, UnmappablePropertyDestination>(source);
         
         // Assert - verify mappable properties are mapped correctly
         Assert.NotNull(destination);

@@ -11,6 +11,8 @@ public class OrderMappingProfile : MapperProfile
 {
     public override void Configure(MapperConfiguration config)
     {
+        config.EnableProjectionFunctions = true;
+        
         // Custom mapping using WithCustomMapping
         config.CreateMap<CustomTestOrder, CustomTestOrderDto>()
             .WithCustomMapping(MapOrderToDto);
@@ -103,7 +105,7 @@ public class OrderModelTests
         };
 
         // Act
-        var orderDto = _mapper.Map<CustomTestOrderDto>(order);
+        var orderDto = _mapper.MapSingleObject<CustomTestOrder, CustomTestOrderDto>(order);
 
         // Assert
         Assert.NotNull(orderDto);
@@ -134,7 +136,7 @@ public class OrderModelTests
         };
 
         // Act
-        var orderDto = _mapper.Map<CustomTestOrderDto>(cancelledOrder);
+        var orderDto = _mapper.MapSingleObject<CustomTestOrder, CustomTestOrderDto>(cancelledOrder);
 
         // Assert
         Assert.Equal("Cancelled", orderDto.Status);
@@ -149,7 +151,7 @@ public class OrderModelTests
         };
 
         // Act
-        var pendingOrderDto = _mapper.Map<CustomTestOrderDto>(pendingOrder);
+        var pendingOrderDto = _mapper.MapSingleObject<CustomTestOrder, CustomTestOrderDto>(pendingOrder);
 
         // Assert
         Assert.Equal("Pending", pendingOrderDto.Status);
@@ -169,7 +171,7 @@ public class OrderModelTests
         };
 
         // Act
-        var orderDto = _mapper.Map<CustomTestOrderDto>(order);
+        var orderDto = _mapper.MapSingleObject<CustomTestOrder, CustomTestOrderDto>(order);
 
         // Assert
         Assert.NotNull(orderDto);
@@ -201,7 +203,7 @@ public class OrderModelTests
         };
 
         // Act
-        var orderDto = _mapper.Map<CustomTestOrderDto>(order);
+        var orderDto = _mapper.MapSingleObject<CustomTestOrder, CustomTestOrderDto>(order);
 
         // Assert
         Assert.Equal(400m, orderDto.TotalAmount); // (3 * 100) + (2 * 50) = 400

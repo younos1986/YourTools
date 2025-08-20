@@ -11,7 +11,8 @@ public class ProductMappingProfile : MapperProfile
 {
     public override void Configure(MapperConfiguration config)
     {
-        // Product mapping will be handled by custom mapping attribute
+        config.EnableProjectionFunctions = true;
+        
     }
 
     // Complete custom mapping using attributes
@@ -76,7 +77,7 @@ public class ProductModelTests
         };
 
         // Act
-        var productDto = _mapper.Map<CustomTestProductDto>(product);
+        var productDto = _mapper.MapSingleObject<CustomTestProduct, CustomTestProductDto>(product);
 
         // Assert
         Assert.NotNull(productDto);
@@ -107,7 +108,7 @@ public class ProductModelTests
         };
 
         // Act
-        var productDto = _mapper.Map<CustomTestProductDto>(product);
+        var productDto = _mapper.MapSingleObject<CustomTestProduct, CustomTestProductDto>(product);
 
         // Assert
         Assert.Equal(900m, productDto.DiscountedPrice); // 10% discount applied
@@ -132,7 +133,7 @@ public class ProductModelTests
         };
 
         // Act
-        var productDto = _mapper.Map<CustomTestProductDto>(product);
+        var productDto = _mapper.MapSingleObject<CustomTestProduct, CustomTestProductDto>(product);
 
         // Assert
         Assert.Equal(50m, productDto.DiscountedPrice); // No discount applied
@@ -152,7 +153,7 @@ public class ProductModelTests
         };
 
         // Act
-        var productDto = _mapper.Map<CustomTestProductDto>(product);
+        var productDto = _mapper.MapSingleObject<CustomTestProduct, CustomTestProductDto>(product);
 
         // Assert
         Assert.NotNull(productDto);

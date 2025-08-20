@@ -55,7 +55,7 @@ public class UserModelTests
         };
 
         // Act
-        var userDto = _mapper.Map<CustomTestUserDto>(user);
+        var userDto = _mapper.MapSingleObject<CustomTestUser, CustomTestUserDto>(user);
 
         // Assert
         Assert.NotNull(userDto);
@@ -81,7 +81,7 @@ public class UserModelTests
         };
 
         // Act
-        var userDto = _mapper.Map<CustomTestUserDto>(user);
+        var userDto = _mapper.MapSingleObject<CustomTestUser, CustomTestUserDto>(user);
 
         // Assert
         Assert.NotNull(userDto);
@@ -106,7 +106,7 @@ public class UserModelTests
         };
 
         // Act
-        var userDto = _mapper.Map<CustomTestUserDto>(user);
+        var userDto = _mapper.MapSingleObject<CustomTestUser, CustomTestUserDto>(user);
 
         // Assert
         Assert.Equal(DateTime.Now.Year - 2000, userDto.Age);

@@ -1,4 +1,4 @@
-﻿namespace YourTools.Mapper.Tests.Models.DTOs;
+﻿namespace YourTools.Mapper.Tests.Models.Entities;
 
 public class TestModel
 {

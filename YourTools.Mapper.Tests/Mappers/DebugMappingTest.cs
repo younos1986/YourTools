@@ -17,7 +17,6 @@ public class DebugMappingTest
         var serviceProvider = services.BuildServiceProvider();
         var mapper = serviceProvider.GetRequiredService<IMapper>();
 
-        // Test 1: Nullable to Non-nullable (should work with our fix)
         var testModel = new TestModel
         {
             Name = "Test",
@@ -25,9 +24,8 @@ public class DebugMappingTest
             InstaPageId = "test123"
         };
         
-        var testEntity = mapper.Map<TestEntity>(testModel);
+        var testEntity = mapper.MapSingleObject<TestModel, TestEntity>(testModel);
   
-        // Test 2: Non-nullable to Nullable (this is failing)
         var testEntity2 = new TestEntity
         {
             Name = "Test2",
@@ -35,7 +33,7 @@ public class DebugMappingTest
             InstaPageId = "entity456"
         };
         
-        var testModel2 = mapper.Map<TestModel>(testEntity2);
+        var testModel2 = mapper.MapSingleObject<TestEntity, TestModel>(testEntity2);
         
         // Assertions
         Assert.Equal("test123", testEntity?.InstaPageId);

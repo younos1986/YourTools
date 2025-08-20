@@ -1,10 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using YourTools.Mapper;
 using YourTools.Mapper.Generated;
-using YourTools.Mapper.Tests.Models.DTOs;
 using YourTools.Mapper.Tests.Models.Entities;
 
-namespace YourTools.Mapper.Tests;
+namespace YourTools.Mapper.Tests.Mappers;
 
 
 public class TestProfile : MapperProfile
@@ -40,7 +38,7 @@ public class MapperOneObjectTests
         };
         
         // Act
-        var testEntity = _mapper.Map<TestEntity>(testModel);
+        var testEntity = _mapper.MapSingleObject<TestModel, TestEntity>(testModel);
         
         // Assert
         Assert.NotNull(testEntity);
@@ -60,7 +58,7 @@ public class MapperOneObjectTests
         };
         
         // Act
-        var testModel = _mapper.Map<TestModel>(testEntity);
+        var testModel = _mapper.MapSingleObject<TestEntity, TestModel>(testEntity);
         
         // Assert
         Assert.NotNull(testModel);
@@ -112,7 +110,7 @@ public class MapperOneObjectTests
         {
             new() { Name = "Model 1", Age = 20 },
             new() { Name = "Model 2", Age = 30 }
-        };
+        }.ToList();
         
         // Act
         var testEntityList = _mapper.Map<List<TestEntity>>(testModelArray);
@@ -135,7 +133,7 @@ public class MapperOneObjectTests
         };
         
         // Act
-        var testEntity = _mapper.Map<TestEntity>(testModel);
+        var testEntity = _mapper.MapSingleObject<TestModel, TestEntity>(testModel);
         
         // Assert
         Assert.NotNull(testEntity);

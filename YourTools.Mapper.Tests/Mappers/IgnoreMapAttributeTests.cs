@@ -1,9 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using YourTools.Mapper;
 using YourTools.Mapper.Generated;
 using YourTools.Mapper.Tests.Models.Entities;
 
-namespace YourTools.Mapper.Tests;
+namespace YourTools.Mapper.Tests.Mappers;
 
 public class IgnoreMapAttributeTestProfile : MapperProfile
 {
@@ -39,17 +38,15 @@ public class IgnoreMapAttributeTests
         };
 
         // Act
-        var destination = _mapper.Map<DestinationModelWithIgnore>(source);
+        var destination = _mapper.MapSingleObject<SourceModelWithIgnore, DestinationModelWithIgnore>(source);
 
         // Assert
         Assert.NotNull(destination);
         
-        // These properties should be mapped
         Assert.Equal(source.Name, destination.Name);
         Assert.Equal(source.Age, destination.Age);
         Assert.Equal(source.MappedProperty, destination.MappedProperty);
         
-        // This property should NOT be mapped (should retain default value)
         Assert.Equal("Should be ignored", destination.IgnoredProperty);
         Assert.NotEqual(source.IgnoredProperty, destination.IgnoredProperty);
     }

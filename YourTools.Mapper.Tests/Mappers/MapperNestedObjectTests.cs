@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using YourTools.Mapper;
 using YourTools.Mapper.Generated;
 using YourTools.Mapper.Tests.Models.DTOs;
 using YourTools.Mapper.Tests.Models.Entities;
 
-namespace YourTools.Mapper.Tests;
+namespace YourTools.Mapper.Tests.Mappers;
 
 public class UserProfile : MapperProfile
 {
@@ -43,7 +42,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(UserModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(UserModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -71,7 +70,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(UserModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(UserModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -108,7 +107,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(UserModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(UserModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -149,7 +148,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var UserModel = _mapper.Map<UserModel>(userEntity);
+        var UserModel = _mapper.MapSingleObject<UserEntity, UserModel>(userEntity);
 
         // Assert
         Assert.NotNull(UserModel);
@@ -177,7 +176,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(UserModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(UserModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -199,7 +198,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(UserModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(UserModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -274,7 +273,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var addressEntity = _mapper.Map<AddressEntity>(AddressModel);
+        var addressEntity = _mapper.MapSingleObject<AddressModel, AddressEntity>(AddressModel);
 
         // Assert
         Assert.NotNull(addressEntity);
@@ -293,7 +292,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productEntity = _mapper.Map<ProductEntity>(ProductModel);
+        var productEntity = _mapper.MapSingleObject<ProductModel, ProductEntity>(ProductModel);
 
         // Assert
         Assert.NotNull(productEntity);
@@ -337,7 +336,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productTagEntity = _mapper.Map<ProductTagEntity>(productTag);
+        var productTagEntity = _mapper.MapSingleObject<ProductTag, ProductTagEntity>(productTag);
 
         // Assert
         Assert.NotNull(productTagEntity);
@@ -388,7 +387,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productEntity = _mapper.Map<ProductEntity>(productModel);
+        var productEntity = _mapper.MapSingleObject<ProductModel, ProductEntity>(productModel);
 
         // Assert
         Assert.NotNull(productEntity);
@@ -453,7 +452,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var userEntity = _mapper.Map<UserEntity>(userModel);
+        var userEntity = _mapper.MapSingleObject<UserModel, UserEntity>(userModel);
 
         // Assert
         Assert.NotNull(userEntity);
@@ -500,7 +499,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productEntity = _mapper.Map<ProductEntity>(productModel);
+        var productEntity = _mapper.MapSingleObject<ProductModel, ProductEntity>(productModel);
 
         // Assert
         Assert.NotNull(productEntity);
@@ -522,7 +521,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productEntity = _mapper.Map<ProductEntity>(productModel);
+        var productEntity = _mapper.MapSingleObject<ProductModel, ProductEntity>(productModel);
 
         // Assert
         Assert.NotNull(productEntity);
@@ -542,7 +541,7 @@ public class MapperNestedObjectTests
         };
 
         // Act
-        var productTag = _mapper.Map<ProductTag>(productTagEntity);
+        var productTag = _mapper.MapSingleObject<ProductTagEntity, ProductTag>(productTagEntity);
 
         // Assert
         Assert.NotNull(productTag);

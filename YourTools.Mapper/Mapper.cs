@@ -61,7 +61,8 @@ public class Mapper(IGeneratedMappingDispatcher dispatcher) : IMapper
     private TDestination MapCollection<TSource, TDestination>(TSource source, Type sourceType, Type destType)
     {
         // Array mapping
-        if (sourceType.IsArray && destType.IsArray)
+        //if (sourceType.IsArray && destType.IsArray)
+        if (sourceType.IsArray)
         {
             if (dispatcher.TryMapArray(source!, sourceType, destType, out var arrResult))
             {
@@ -69,7 +70,8 @@ public class Mapper(IGeneratedMappingDispatcher dispatcher) : IMapper
             }
         }
         // List mapping
-        else if (typeof(IList).IsAssignableFrom(sourceType) && typeof(IList).IsAssignableFrom(destType))
+        //else if (typeof(IList).IsAssignableFrom(sourceType) && typeof(IList).IsAssignableFrom(destType))
+        else if (typeof(IList).IsAssignableFrom(sourceType))
         {
             if (dispatcher.TryMapList(source!, sourceType, destType, out var listResult))
             {
