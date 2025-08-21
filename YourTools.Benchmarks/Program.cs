@@ -10,9 +10,9 @@ using YourTools.Mapper.Generated;
 using IMapper = YourTools.Mapper.IMapper;
 
 //BenchmarkRunner.Run<MappingBenchmarksCustomMapper>();
-//BenchmarkRunner.Run<MappingBenchmarksComplexObject>();
+BenchmarkRunner.Run<MappingBenchmarksComplexObject>();
 //BenchmarkRunner.Run<MappingBenchmarksSimpleObject>();
-BenchmarkRunner.Run<MappingBenchmarksOrderEntity>();
+//BenchmarkRunner.Run<MappingBenchmarksOrderEntity>();
 //BenchmarkRunner.Run<MappingBenchmarksAddressModelSimpleObject>();
 
 return 0;

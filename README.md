@@ -310,7 +310,18 @@ PersonEntity PersonSample = new()
 };
 ```
 
-![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject.png)
+
+First Run:
+
+![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_1.png)
+
+First Run:
+
+![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_2.png)
+
+First Run:
+
+![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_3.png)
 
 *Example: Mapping speed comparison for a single complex object using YourTools.Mapper, Mapster, and AutoMapper.*
 
@@ -348,6 +359,16 @@ OrderEntity _OrderEntity = new()
 };
 ```
 
-![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksOrderEntity.png)
+First run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksOrderEntity_1.png)
+
+Second run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksOrderEntity_2.png)
+
+Third run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksOrderEntity_3.png)
 
 *Example: Mapping speed comparison for a single complex order object using YourTools.Mapper, Mapster, and AutoMapper.*
