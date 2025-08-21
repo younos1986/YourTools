@@ -11,9 +11,9 @@
         <Authors>Younes Baghaei Moghaddam</Authors>
         <Description>Source generator for mapping objects in .NET projects.</Description>
         <PackageTags>mapping, source-generator, roslyn</PackageTags>
-        <RepositoryUrl>https://github.com/</RepositoryUrl>
+        <RepositoryUrl>https://github.com/younos1986/YourTools</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://yourtools.example.com</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/younos1986/YourTools</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <!-- SOURCE GENERATOR IMPORTANT SETTINGS -->
