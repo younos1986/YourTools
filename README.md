@@ -375,9 +375,9 @@ Third run:
 
 
 
-### Example Benchmark: Mapping Order Object
+### Example Benchmark: Mapping Person Object
 
-The following sample is used to benchmark mapping `OrderEntity` object:
+The following sample is used to benchmark mapping `Person` object:
 
 ```csharp
 PersonEntity PersonSample = new()
@@ -400,4 +400,4 @@ Third run:
 
 ![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksSimpleObject_3.png)
 
-*Example: Mapping speed comparison for a single complex order object using YourTools.Mapper, Mapster, and AutoMapper.*
+*Example: Mapping speed comparison for a single Person object using YourTools.Mapper, Mapster, and AutoMapper.*
