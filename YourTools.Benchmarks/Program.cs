@@ -10,8 +10,8 @@ using YourTools.Mapper.Generated;
 using IMapper = YourTools.Mapper.IMapper;
 
 //BenchmarkRunner.Run<MappingBenchmarksCustomMapper>();
-BenchmarkRunner.Run<MappingBenchmarksComplexObject>();
-//BenchmarkRunner.Run<MappingBenchmarksSimpleObject>();
+//BenchmarkRunner.Run<MappingBenchmarksComplexObject>();
+BenchmarkRunner.Run<MappingBenchmarksSimpleObject>();
 //BenchmarkRunner.Run<MappingBenchmarksOrderEntity>();
 //BenchmarkRunner.Run<MappingBenchmarksAddressModelSimpleObject>();
 
@@ -44,7 +44,7 @@ List<PersonEntity> peopleList =
 ];
 
 var services = new ServiceCollection();
-services.RegisterMappingHandlers();
+services.RegisterYourToolsMapping();
         
 var sp = services.BuildServiceProvider();
 var myMapper = sp.GetRequiredService<IMapper>();

@@ -20,7 +20,7 @@ public class MapperNestedObjectTests
     public MapperNestedObjectTests()
     {
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
 
         var serviceProvider = services.BuildServiceProvider();
         _mapper = serviceProvider.GetRequiredService<IMapper>();

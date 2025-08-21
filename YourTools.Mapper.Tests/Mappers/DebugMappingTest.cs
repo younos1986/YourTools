@@ -13,7 +13,7 @@ public class DebugMappingTest
     {
         // Arrange
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         var serviceProvider = services.BuildServiceProvider();
         var mapper = serviceProvider.GetRequiredService<IMapper>();
 

@@ -20,7 +20,12 @@ public class MappingBenchmarksSimpleObject
     private PersonEntity _singlePerson = default!;
     
     private AutoMapper.IMapper _mapper;
-    private static PersonEntity PersonSample = new() { Email = "person@mail.com", Age = 38, Name = "Person" };
+    private static PersonEntity PersonSample = new()
+    {
+        Email = "person@mail.com",
+        Age = 38, 
+        Name = "Person"
+    };
     private static PersonEntity[] _peopleArray = [];
     private static List<PersonEntity> _peopleList = [];
 
@@ -42,7 +47,7 @@ public class MappingBenchmarksSimpleObject
         Console.WriteLine("************************************************************************************");
         
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         services.AddLogging();
         services.AddAutoMapper(cfg => { },
             typeof(PersonEntity).Assembly);

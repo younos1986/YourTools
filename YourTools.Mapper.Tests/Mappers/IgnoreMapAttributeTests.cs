@@ -19,7 +19,7 @@ public class IgnoreMapAttributeTests
     public IgnoreMapAttributeTests()
     {
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         
         var serviceProvider = services.BuildServiceProvider();
         _mapper = serviceProvider.GetRequiredService<IMapper>();

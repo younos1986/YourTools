@@ -20,7 +20,7 @@ namespace YourTools.Mapper.CodeGeneration
             // Service registration
             var srBuilder = new StringBuilder();
             BuildServiceRegistration(srBuilder, mappings);
-            spc.AddSource("RegisterMappingHandlers.g.cs", Microsoft.CodeAnalysis.Text.SourceText.From(srBuilder.ToString(), Encoding.UTF8));
+            spc.AddSource("RegisterYourToolsMapping.g.cs", Microsoft.CodeAnalysis.Text.SourceText.From(srBuilder.ToString(), Encoding.UTF8));
             // Combined handlers
             var uniqueMappings = mappings.Select(m => (m.Source, m.Destination)).Distinct().ToList();
             foreach (var (source, destination) in uniqueMappings)
@@ -134,7 +134,7 @@ namespace YourTools.Mapper.CodeGeneration
             sb.AppendLine("    public static class MappingServiceExtensions");
             sb.AppendLine("    {");
             sb.AppendLine("        /// <summary>Registers all generated mapping services (mapper, dispatcher, individual handlers).</summary>");
-            sb.AppendLine("        public static IServiceCollection RegisterMappingHandlers(this IServiceCollection services, System.Action<MapperConfiguration> configure = null)");
+            sb.AppendLine("        public static IServiceCollection RegisterYourToolsMapping(this IServiceCollection services, System.Action<MapperConfiguration> configure = null)");
             sb.AppendLine("        {");
             // sb.AppendLine("            var config = new MapperConfiguration();");
             // sb.AppendLine("            configure?.Invoke(config);");

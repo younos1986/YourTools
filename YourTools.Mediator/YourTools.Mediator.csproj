@@ -4,7 +4,7 @@
         <OutputItemType>Analyzer</OutputItemType>
         <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <VersionPrefix>1.0.1</VersionPrefix>
+        <VersionPrefix>1.0.2</VersionPrefix>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <PackageId>YourTools.Mediator</PackageId>
         <Authors>Younes Baghaei Moghaddam</Authors>

@@ -61,16 +61,16 @@ public class YourToolsMapperProfile : MapperProfile
 
 public class StaticMappers
 {
-    public static BalanceModel MapBalanceModelToBalanceEntity(BalanceEntity model)
+    public static BalanceModel MapBalanceModelToBalanceEntity(BalanceEntity entity)
     {
         return new BalanceModel
         {
-            Id = model.Id,
-            UserId = model.UserId,
-            Amount = model.Amount,
-            CreatedAt = model.CreatedAt,
-            UpdatedAt = model.UpdatedAt,
-            IsDeleted = model.IsDeleted
+            Id = entity.Id,
+            UserId = entity.UserId,
+            Amount = entity.Amount,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            IsDeleted = entity.IsDeleted
         };
     }
 }
@@ -92,13 +92,13 @@ using Microsoft.Extensions.DependencyInjection;
 using YourTools.Mapper;
 
 var services = new ServiceCollection();
-services.RegisterMappingHandlers();
+services.RegisterYourToolsMapping();
 
 var sp = services.BuildServiceProvider();
 var myMapper = sp.GetRequiredService<IMapper>();
 ```
 
-- `RegisterMappingHandlers()` scans and registers all mapping profiles and handlers.
+- `RegisterYourToolsMapping()` scans and registers all mapping profiles and handlers.
 - You can now inject or resolve `IMapper` anywhere in your application.
 
 This approach works seamlessly with ASP.NET Core or any .NET application using Microsoft.Extensions.DependencyInjection.
@@ -127,7 +127,7 @@ namespace YourTools.Mapper.Generated
     public static class MappingServiceExtensions
     {
         /// <summary>Registers all generated mapping services (mapper, dispatcher, individual handlers).</summary>
-        public static IServiceCollection RegisterMappingHandlers(this IServiceCollection services, System.Action<MapperConfiguration> configure = null)
+        public static IServiceCollection RegisterYourToolsMapping(this IServiceCollection services, System.Action<MapperConfiguration> configure = null)
         {
             services.AddSingleton<IMapper, Mapper>();
             services.AddSingleton<IGeneratedMappingDispatcher, GeneratedMappingDispatcher>();
@@ -315,11 +315,11 @@ First Run:
 
 ![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_1.png)
 
-First Run:
+Second Run:
 
 ![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_2.png)
 
-First Run:
+Third Run:
 
 ![Complex Object Mapping Benchmark](screenshots/MappingBenchmarksComplexObject_3.png)
 
@@ -370,5 +370,34 @@ Second run:
 Third run:
 
 ![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksOrderEntity_3.png)
+
+*Example: Mapping speed comparison for a single complex order object using YourTools.Mapper, Mapster, and AutoMapper.*
+
+
+
+### Example Benchmark: Mapping Order Object
+
+The following sample is used to benchmark mapping `OrderEntity` object:
+
+```csharp
+PersonEntity PersonSample = new()
+    {
+        Email = "person@mail.com",
+        Age = 38, 
+        Name = "Person"
+    };
+```
+
+First run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksSimpleObject_1.png)
+
+Second run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksSimpleObject_2.png)
+
+Third run:
+
+![Order Entity Mapping Benchmark](screenshots/MappingBenchmarksSimpleObject_3.png)
 
 *Example: Mapping speed comparison for a single complex order object using YourTools.Mapper, Mapster, and AutoMapper.*

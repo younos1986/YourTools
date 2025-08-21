@@ -53,7 +53,7 @@ public class MappingBenchmarksCustomMapper
         Console.WriteLine("************************************************************************************");
         
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         services.AddLogging();
         services.AddAutoMapper(cfg => { },
             typeof(BalanceEntity).Assembly);

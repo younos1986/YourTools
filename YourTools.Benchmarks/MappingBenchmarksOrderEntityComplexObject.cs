@@ -88,7 +88,7 @@ public class MappingBenchmarksOrderEntityComplexObject
         Console.WriteLine("************************************************************************************");
 
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         services.AddLogging();
         services.AddAutoMapper(cfg => { },
             typeof(OrderEntity).Assembly);

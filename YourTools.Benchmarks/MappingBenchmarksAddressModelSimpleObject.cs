@@ -38,11 +38,11 @@ public class MappingBenchmarksAddressModelSimpleObject
         }
         _addressArray = _addressList.ToArray();
         Console.WriteLine("************************************************************************************");
-        Console.WriteLine($"People List Count: {_addressList.Count}");
+        Console.WriteLine($"Address List Count: {_addressList.Count}");
         Console.WriteLine("************************************************************************************");
         
         var services = new ServiceCollection();
-        services.RegisterMappingHandlers();
+        services.RegisterYourToolsMapping();
         services.AddLogging();
         services.AddAutoMapper(cfg => { },
             typeof(AddressEntity).Assembly);
